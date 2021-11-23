@@ -16,7 +16,7 @@
                         v-for="i in item.children"
                         :key="i.title"
                         class="menu-children"
-                        @click="changePath(i.path)"
+                        @click="changePath(i)"
                         >{{ i.title }}</div
                     >
                 </div>
@@ -28,7 +28,7 @@
 <script lang="ts">
     import { defineComponent, reactive, toRefs } from 'vue'
     import { useRouter } from 'vue-router'
-    import demo from '@/router/modules/demo'
+    import demo from '~/router/modules/demo'
 
     interface Imenu {
         title: string
@@ -70,14 +70,14 @@
 
             function changeMenu(item: Imenu) {
                 state.currentMenu = item.title
-                if (item.path) {
-                    changePath(item.path)
-                }
+                changePath(item)
             }
 
-            function changePath(path: string) {
-                state.isOpen = false
-                router.push({ path })
+            function changePath(item: Imenu) {
+                if (item.path) {
+                    state.isOpen = false
+                    router.push({ path: item.path })
+                }
             }
 
             return {

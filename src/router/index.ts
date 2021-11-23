@@ -8,7 +8,7 @@ NProgress.configure({ showSpinner: false })
 export const constantRoutes: Array<RouteRecordRaw> = [
     {
         path: '/',
-        component: () => import('@/views/home/index.vue'),
+        component: () => import('~/views/home/index.vue'),
     },
     ...demo,
 ]

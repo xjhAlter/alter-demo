@@ -9,7 +9,7 @@ export default defineConfig({
     resolve: {
         alias: [
             // @ts-ignore
-            { find: '@', replacement: resolve(__dirname, 'src') },
+            { find: '~', replacement: resolve(__dirname, 'src') },
         ],
     },
     server: {
