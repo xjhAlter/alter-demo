@@ -96,7 +96,7 @@
         position: fixed;
         left: 0;
         top: 0;
-        z-index: 9999;
+        z-index: 99;
         width: 0;
         height: 0;
         &.open {
