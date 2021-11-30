@@ -93,7 +93,48 @@
                     // ctx.fillStyle = 'rgba(255,0,0,0.3)'
                     ctx.fillStyle = gradient // 渐变填充
                     ctx.fill() // 绘制填充色
+
+                    // 动画绘制边框
+                    drawing([
+                        [halfWidth, pointA, pointB, halfHeight],
+                        [pointB, halfHeight, halfWidth, pointC],
+                        [halfWidth, pointC, pointD, halfHeight],
+                        [pointD, halfHeight, halfWidth, pointA],
+                    ])
                 }
+            }
+
+            async function drawing(points: number[][]) {
+                for (let i = 0; i < points.length; i++) {
+                    const point = points[i]
+                    await drawAnime(point[0], point[1], point[2], point[3])
+                }
+            }
+
+            function drawAnime(startX: number, startY: number, endX: number, endY: number) {
+                return new Promise((resolve) => {
+                    const canvas = radar.value
+                    const ctx = canvas.getContext('2d')
+                    const time = 250 // ms
+                    const step = 10
+                    const stepX = (endX - startX) / step
+                    const stepY = (endY - startY) / step
+
+                    ctx.beginPath()
+                    ctx.moveTo(startX, startY)
+                    let count = 0
+                    let timer = setInterval(() => {
+                        startX = startX + stepX
+                        startY = startY + stepY
+                        ctx.lineTo(startX, startY)
+                        ctx.stroke()
+                        count++
+                        if (count >= step) {
+                            clearInterval(timer)
+                            resolve(true)
+                        }
+                    }, time / step)
+                })
             }
 
             function refreshRadar() {
