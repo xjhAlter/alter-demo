@@ -24,4 +24,12 @@ export default [
             title: '3d穿梭效果',
         },
     },
+    {
+        path: base + 'glassmorphism',
+        name: 'glassmorphism',
+        component: () => import('~/views/demo/glassmorphism/index.vue'),
+        meta: {
+            title: '毛玻璃',
+        },
+    },
 ]
