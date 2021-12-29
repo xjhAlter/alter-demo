@@ -16,4 +16,12 @@ export default [
             title: '某模拟器功能预研',
         },
     },
+    {
+        path: base + 'shuttle',
+        name: 'shuttle',
+        component: () => import('~/views/demo/shuttle/index.vue'),
+        meta: {
+            title: '3d穿梭效果',
+        },
+    },
 ]
