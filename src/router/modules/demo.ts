@@ -32,4 +32,12 @@ export default [
             title: '毛玻璃',
         },
     },
+    {
+        path: base + 'svg-demo',
+        name: 'svgDemo',
+        component: () => import('~/views/demo/svg-demo/index.vue'),
+        meta: {
+            title: 'svg demo',
+        },
+    },
 ]
