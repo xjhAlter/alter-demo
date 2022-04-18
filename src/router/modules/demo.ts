@@ -40,4 +40,12 @@ export default [
             title: 'svg demo',
         },
     },
+    {
+        path: base + 'pixi-demo',
+        name: 'pixiDemo',
+        component: () => import('~/views/demo/pixi-demo/index.vue'),
+        meta: {
+            title: 'pixi demo',
+        },
+    },
 ]
