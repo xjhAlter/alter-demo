@@ -48,4 +48,12 @@ export default [
             title: 'pixi demo',
         },
     },
+    {
+        path: base + 'rotate-3d',
+        name: 'rotate3d',
+        component: () => import('~/views/demo/rotate-3d/index.vue'),
+        meta: {
+            title: '3D 旋转动效',
+        },
+    },
 ]
